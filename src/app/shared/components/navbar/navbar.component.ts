@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { constants } from '../../../config/app.constants';
+import { NavbarModel } from '../models/navbar.model';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,7 @@ import { constants } from '../../../config/app.constants';
 })
 export class NavbarComponent implements OnInit {
   constants  = constants;
+  @Input() links: NavbarModel[] = [];
   constructor() { }
 
   ngOnInit(): void {

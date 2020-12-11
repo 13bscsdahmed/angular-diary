@@ -15,7 +15,7 @@ const routes: Routes = [
     // Define child routes and respective components
     children: [
       {
-        path: appRoutes.diary.note,
+        path: '',
         pathMatch: 'full',
         redirectTo: appRoutes.diary.note,
       },
