@@ -4,18 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { PreloadSelectedModules } from './shared/strategies/preload-selected-modules.strategy';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MDBBootstrapModule.forRoot(),
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PreloadSelectedModules
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
