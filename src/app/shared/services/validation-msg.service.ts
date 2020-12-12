@@ -8,6 +8,8 @@ export class ValidationMsgService {
     'picture-required' : 'Picture is a required field',
     'video-required': 'Video is a required field',
     'date-required': 'Date is a required field',
+    'video-invalidUrl': 'Video must be a valid url',
+    'picture-invalidUrl': 'Picture must be a valid url',
   };
   
   public getValidationMsg(validationId: string): string {

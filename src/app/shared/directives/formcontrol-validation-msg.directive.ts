@@ -22,10 +22,9 @@ export class FormControlValidationMsgDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.errorSpanId = this.validationMsgId + '-error-msg';
     // @ts-ignore
-    // Listen to changes on field
     this.control.statusChanges.pipe(takeUntil(this.destroy$)).subscribe(
       (status) => {
-        if (status === 'INVALID') {
+        if (status === 'INVALID' && !this.control.pristine) {
           this.showError();
         } else {
           this.removeError();

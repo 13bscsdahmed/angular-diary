@@ -8,6 +8,7 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
 import { AppUtils } from '../../../../shared/utils/app.utils';
+import { ValidatorUtil } from '../../../../shared/utils/validator.utils';
 
 @Component({
   selector: 'app-note',
@@ -16,10 +17,10 @@ import { AppUtils } from '../../../../shared/utils/app.utils';
 })
 export class NoteComponent implements OnInit, OnDestroy {
   noteForm = new FormGroup({
-    note: new FormControl(null, [Validators.required]),
-    date: new FormControl(null, [Validators.required]),
-    picture: new FormControl(null, [Validators.required]),
-    video: new FormControl(null, [Validators.required])
+    note: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
+    picture: new FormControl('', [Validators.required, ValidatorUtil.urlValidator]),
+    video: new FormControl('', [Validators.required, ValidatorUtil.urlValidator])
   });
   note: NoteModel = this.getDefaultNoteValue();
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -56,9 +57,15 @@ export class NoteComponent implements OnInit, OnDestroy {
         video: this.noteForm.value.video,
         timestamp: AppUtils.getDateTimeString(new Date())
       };
-  
-      console.log(this.note);
+      
       this.store.dispatch(new AddNote(this.note));
+      this.noteForm.reset();
+  
+      (Object as any).values(this.noteForm.controls).forEach(
+        (control: any) => {
+          control.markAsPristine();
+        });
+      this.note = this.getDefaultNoteValue();
     }
   }
   
