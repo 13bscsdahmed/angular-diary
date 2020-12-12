@@ -21,14 +21,7 @@ export class NoteComponent implements OnInit, OnDestroy {
     picture: new FormControl(null, [Validators.required]),
     video: new FormControl(null, [Validators.required])
   });
-  note: NoteModel = {
-    id: '',
-    text: '',
-    date: '',
-    picture: '',
-    video: '',
-    timestamp: ''
-  };
+  note: NoteModel = this.getDefaultNoteValue();
   destroy$: Subject<boolean> = new Subject<boolean>();
   loading$: Observable<NoteModel[]>;
   constructor(private store: Store) { }
@@ -37,20 +30,36 @@ export class NoteComponent implements OnInit, OnDestroy {
   }
   
   /**
+   * Function returns default note value
+   */
+  getDefaultNoteValue(): NoteModel {
+    return {
+      id: '',
+      text: '',
+      date: '',
+      picture: '',
+      video: '',
+      timestamp: ''
+    };
+  }
+  
+  /**
    * Function to add note
    */
   addNote() {
-    this.note = {
-      id: UUID.UUID(),
-      text: this.noteForm.value.note,
-      date: this.noteForm.value.date.toString(),
-      picture: this.noteForm.value.picture,
-      video: this.noteForm.value.video,
-      timestamp: AppUtils.getDateTimeString(new Date())
-    };
-    
-    console.log(this.note);
-    this.store.dispatch(new AddNote(this.note));
+    if (this.noteForm.valid) {
+      this.note = {
+        id: UUID.UUID(),
+        text: this.noteForm.value.note,
+        date: this.noteForm.value.date.toString() || '',
+        picture: this.noteForm.value.picture,
+        video: this.noteForm.value.video,
+        timestamp: AppUtils.getDateTimeString(new Date())
+      };
+  
+      console.log(this.note);
+      this.store.dispatch(new AddNote(this.note));
+    }
   }
   
   getNotes() {
@@ -64,6 +73,7 @@ export class NoteComponent implements OnInit, OnDestroy {
       }
     );
   }
+  
   
   ngOnDestroy(): void {
     this.destroy$.next(true);

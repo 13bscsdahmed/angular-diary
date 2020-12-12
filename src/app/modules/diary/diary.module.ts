@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DiaryRoutingModule } from './diary-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StoreModule } from '@ngrx/store';
 
 import { DiaryComponent } from './components/diary/diary.component';
@@ -23,7 +22,6 @@ import { features } from '../../store/features/features';
     CommonModule,
     DiaryRoutingModule,
     SharedModule,
-    MDBBootstrapModule,
     StoreModule.forFeature(features.notes, notesReducer)
   ]
 })

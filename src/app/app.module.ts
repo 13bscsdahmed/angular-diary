@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,7 @@ import { environment } from '../environments/environment';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [
-    PreloadSelectedModules
+    PreloadSelectedModules,
   ],
   bootstrap: [AppComponent]
 })
