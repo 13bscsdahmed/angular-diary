@@ -11,7 +11,9 @@
       ]
     },
     "array-type": false,
+    "no-trailing-whitespace": false,
     "arrow-return-shorthand": true,
+    "no-shadowed-variable": false,
     "curly": true,
     "deprecation": {
       "severity": "warning"
@@ -83,7 +85,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {

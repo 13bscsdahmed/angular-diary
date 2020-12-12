@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { PreloadSelectedModules } from './shared/strategies/preload-selected-modules.strategy';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,9 @@ import { PreloadSelectedModules } from './shared/strategies/preload-selected-mod
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [
     PreloadSelectedModules

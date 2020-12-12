@@ -1,50 +1,26 @@
 <div class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-md-7 col-sm-10">
-      <form class="text-center border border-light p-5">
+      <form class="text-center border border-light p-5" [formGroup]="noteForm">
     
-        <p class="h4 mb-4">Sign in</p>
+        <p class="h4 mb-4">Add New Note</p>
     
-        <!-- Email -->
-        <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-    
-        <!-- Password -->
-        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-    
-        <div class="d-flex justify-content-around">
-          <div>
-            <!-- Remember me -->
-            <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
-          </div>
-          <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
-          </div>
-        </div>
+        <!-- Note -->
+        <input id="defaultLoginFormEmail" formControlName="note" class="form-control mb-4" placeholder="Note">
+  
+        <!-- Picture -->
+        <input class="form-control mb-4" formControlName="picture" placeholder="Picture Link">
+  
+        <!-- Video -->
+        <input  class="form-control mb-4" formControlName="video" placeholder="Video Link">
+  
+        <input class="form-control mb-4" formControlName="date" type="date" id="birthday" name="birthday">
+        
     
         <!-- Sign in button -->
-        <button mdbBtn color="info" class="my-4" type="submit">Sign in</button>
-    
-        <!-- Register -->
-        <p>Not a member?
-          <a href="">Register</a>
-        </p>
-    
-        <!-- Social login -->
-        <p>or sign in with:</p>
-    
-        <a type="button" class="light-blue-text mx-2">
-          <mdb-icon fab icon="facebook"></mdb-icon>
-        </a>
-        <a type="button" class="light-blue-text mx-2">
-          <mdb-icon fab icon="twitter"></mdb-icon>
-        </a>
-        <a type="button" class="light-blue-text mx-2">
-          <mdb-icon fab icon="linkedin"></mdb-icon>
-        </a>
-        <a type="button" class="light-blue-text mx-2">
-          <mdb-icon fab icon="github"></mdb-icon>
-        </a>
+        <button mdbBtn color="info" (click)="addNote()" class="my-4" type="submit" >Add</button>
+  
+        <button mdbBtn color="info" (click)="getNotes()" class="my-4" type="submit" >Get</button>
   
       </form>
     </div>
