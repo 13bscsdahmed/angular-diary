@@ -13,8 +13,10 @@
           
           
           <!-- Get notes button -->
-          <div class="text-center">
-            <button mdbBtn *ngIf="historyForm.controls.date.value !== ''" color="info" (click)="reset()" class="my-4 mx-auto" type="submit">Reset</button>
+          <div class="text-center d-flex justify-content-between">
+            <button class="my-4 mx-auto" mdbBtn *ngIf="historyForm.controls.date.value !== ''" color="info" (click)="reset()"  type="submit">Show all notes</button>
+  
+            <button class="my-4 mx-auto" mdbBtn *ngIf="notes.length > 0" color="info" (click)="getCsv()">Download Csv</button>
           </div>
         </form>
         <!-- Note form ends-->

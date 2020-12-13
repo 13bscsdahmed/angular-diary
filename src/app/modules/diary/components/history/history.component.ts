@@ -9,6 +9,13 @@ import { Store } from '@ngrx/store';
 
 import { selectAllNotes, selectNotesByDate } from '../../../../store/notes/notes.selectors';
 
+import { json2csv } from 'json-2-csv';
+import { ToastrService } from 'ngx-toastr';
+
+import { FileSaverUtils } from '../../../shared/utils/file-saver/file-saver.utils';
+import { fileSaverConstants } from '../../../shared/utils/file-saver/file-saver.constants';
+import { constants } from '../../../../config/app.constants';
+
 
 @Component({
   selector: 'app-history',
@@ -22,7 +29,8 @@ export class HistoryComponent implements OnInit, OnDestroy {
   });
   notes: Array<NoteModel> = [];
   destroy$: Subject<boolean> = new Subject<boolean>();
-  constructor(private store: Store) { }
+  constructor(private store: Store,
+              private toastrService: ToastrService) { }
   
   ngOnInit(): void {
     this.getNotes('');
@@ -51,6 +59,20 @@ export class HistoryComponent implements OnInit, OnDestroy {
         this.notes = data;
       });
     }
+  }
+  
+  /**
+   * Function to download the csv file
+   */
+  getCsv() {
+    const filename = this.historyForm.controls.date.value === '' ? 'all-notes.csv' : `${this.historyForm.controls.date.value.toString()}-notes.csv`;
+    json2csv(this.notes, (err, csv) => {
+      if (csv) {
+        FileSaverUtils.downloadFile(csv, filename, fileSaverConstants.fileTypes.csv);
+      } else {
+        this.toastrService.error('An error occurred exporting date.', constants.toast.types.errorToast);
+      }
+    }, {});
   }
   
   
