@@ -6,9 +6,12 @@ import { AddNote } from '../../../../store/notes/notes.actions';
 import { selectAllNotes } from '../../../../store/notes/notes.selectors';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 import { UUID } from 'angular2-uuid';
 import { AppUtils } from '../../../shared/utils/app.utils';
 import { ValidatorUtil } from '../../../shared/utils/validator.utils';
+import { ToastrService } from 'ngx-toastr';
+import { constants } from '../../../../config/app.constants';
 
 @Component({
   selector: 'app-note',
@@ -25,7 +28,8 @@ export class NoteComponent implements OnInit, OnDestroy {
   note: NoteModel = this.getDefaultNoteValue();
   destroy$: Subject<boolean> = new Subject<boolean>();
   loading$: Observable<NoteModel[]>;
-  constructor(private store: Store) { }
+  constructor(private store: Store,
+              private toastrService: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -58,14 +62,19 @@ export class NoteComponent implements OnInit, OnDestroy {
         timestamp: AppUtils.getDateTimeString(new Date())
       };
       
+      // Dispatch action to add not
       this.store.dispatch(new AddNote(this.note));
+      
+      // Reset form
       this.noteForm.reset();
   
+      // Mark all fields as pristine to remove validation errors
       (Object as any).values(this.noteForm.controls).forEach(
         (control: any) => {
           control.markAsPristine();
         });
       this.note = this.getDefaultNoteValue();
+      this.toastrService.success('Note added successfully.', constants.toast.types.successToast);
     }
   }
   

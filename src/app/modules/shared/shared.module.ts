@@ -7,6 +7,7 @@ import { FormControlValidationMsgDirective } from './directives/formcontrol-vali
 import { FormSubmitValidationMsgDirective } from './directives/formsubmit-validation-msg.directive';
 
 import { ValidationMsgService } from './services/validation-msg.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ValidationMsgService } from './services/validation-msg.service';
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule,
+    RouterModule,
   ],
   exports: [
     FormsModule,
