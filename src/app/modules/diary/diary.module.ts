@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DiaryRoutingModule } from './diary-routing.module';
+import { SharedModule } from '../shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+
 import { DiaryComponent } from './components/diary/diary.component';
 import { NoteComponent } from './components/note/note.component';
 import { HistoryComponent } from './components/history/history.component';
-import { SharedModule } from '../shared/shared.module';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+import { notesReducer } from '../../store/notes/notes.reducer';
+import { features } from '../../store/features/features';
 
+/**
+ * Diary Module
+ */
 @NgModule({
   declarations: [
     DiaryComponent,
@@ -19,7 +24,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     CommonModule,
     DiaryRoutingModule,
     SharedModule,
-    MDBBootstrapModule,
+    StoreModule.forFeature(features.notes, notesReducer)
   ]
 })
 export class DiaryModule { }

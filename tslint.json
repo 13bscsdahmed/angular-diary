@@ -11,7 +11,9 @@
       ]
     },
     "array-type": false,
+    "no-trailing-whitespace": false,
     "arrow-return-shorthand": true,
+    "no-shadowed-variable": false,
     "curly": true,
     "deprecation": {
       "severity": "warning"
@@ -52,6 +54,7 @@
       "trace"
     ],
     "no-empty": false,
+    "no-empty-interface": false,
     "no-inferrable-types": [
       true,
       "ignore-params"
@@ -83,7 +86,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
@@ -126,7 +129,7 @@
     "directive-class-suffix": true,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
-    "no-input-rename": true,
+    "no-input-rename": false,
     "no-inputs-metadata-property": true,
     "no-output-native": true,
     "no-output-on-prefix": true,

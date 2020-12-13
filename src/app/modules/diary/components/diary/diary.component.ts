@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Dairy module container component
+ */
 @Component({
   selector: 'app-diary',
   templateUrl: './diary.component.html',
