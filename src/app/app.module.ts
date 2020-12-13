@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NavbarComponent } from './modules/shared/components/navbar/navbar.component';
+
 import { PreloadSelectedModules } from './strategies/preload-selected-modules.strategy';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+
+import { environment } from '../environments/environment';
 import { constants } from './config/app.constants';
+import { metaReducers, reducers } from './reducers';
+
 
 @NgModule({
   declarations: [

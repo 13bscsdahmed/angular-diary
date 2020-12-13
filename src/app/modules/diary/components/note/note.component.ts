@@ -62,7 +62,7 @@ export class NoteComponent implements OnInit, OnDestroy {
         timestamp: AppUtils.getDateTimeString(new Date())
       };
       
-      // Dispatch action to add not
+      // Dispatch action to add note. Make a service call in case of an http call
       this.store.dispatch(new AddNote(this.note));
       
       // Reset form
@@ -76,18 +76,6 @@ export class NoteComponent implements OnInit, OnDestroy {
       this.note = this.getDefaultNoteValue();
       this.toastrService.success('Note added successfully.', constants.toast.types.successToast);
     }
-  }
-  
-  getNotes() {
-    // this.loading$ = this.store.pipe(select(selectAllNotes));
-    // this.store.select(selectAllNotes).subscribe((data: NoteModel) => {
-    //   console.log(data);
-    // });
-  
-    this.store.select(selectAllNotes).pipe(takeUntil(this.destroy$)).subscribe((data) => {
-        console.log('data', data);
-      }
-    );
   }
   
   

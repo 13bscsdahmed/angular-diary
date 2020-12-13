@@ -16,7 +16,7 @@ export const selectAllNotes = createSelector(
   fromNotes.selectAll
 );
 
-export const selectCoursesByDate = (date: string) => createSelector(
+export const selectNotesByDate = (date: string) => createSelector(
   selectAllNotes,
   notes => notes.filter(note => note.date === date)
 );
