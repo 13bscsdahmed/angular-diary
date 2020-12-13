@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavbarModel } from './modules/shared/components/models/navbar.model';
 import { appRoutes } from './config/app-routes.constants';
 
+/**
+ * Main App Container component
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

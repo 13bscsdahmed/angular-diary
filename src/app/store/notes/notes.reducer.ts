@@ -7,7 +7,7 @@ import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { NoteModel } from './models/note.model';
 import { NotesActions, NotesActionsTypes } from './notes.actions';
 
-// Create adapter for connection entity
+// Create adapter for note entity
 const noteAdapter = createEntityAdapter<NoteModel>({
   selectId: (note: NoteModel) => note.id,
   sortComparer: false, // Disable sorting
@@ -41,6 +41,5 @@ export function notesReducer(
 
 export const {
   selectAll,
-  selectEntities,
 } = noteAdapter.getSelectors();
 

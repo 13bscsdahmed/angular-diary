@@ -4,9 +4,14 @@ import { Subject } from 'rxjs';
 import { ValidationMsgService } from '../services/validation-msg.service';
 import { takeUntil } from 'rxjs/operators';
 
+
+/**
+ * Directive to update field validations
+ */
 @Directive({
   selector: '[appFormControlValidationMsg]'
 })
+
 export class FormControlValidationMsgDirective implements OnInit, OnDestroy {
   
   constructor(private elRef: ElementRef,

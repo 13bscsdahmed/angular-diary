@@ -17,6 +17,9 @@ import { fileSaverConstants } from '../../../shared/utils/file-saver/file-saver.
 import { constants } from '../../../../config/app.constants';
 
 
+/**
+ * Notes history component. Shows all the past notes
+ */
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',

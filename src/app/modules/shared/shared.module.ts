@@ -9,7 +9,9 @@ import { FormSubmitValidationMsgDirective } from './directives/formsubmit-valida
 import { ValidationMsgService } from './services/validation-msg.service';
 import { RouterModule } from '@angular/router';
 
-
+/**
+ * Module contains all the shared dependencies
+ */
 @NgModule({
   declarations: [
     FormControlValidationMsgDirective,

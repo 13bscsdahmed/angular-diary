@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * Service to provide field validation error msgs
+ */
 @Injectable()
 export class ValidationMsgService {
   
@@ -12,6 +15,10 @@ export class ValidationMsgService {
     'picture-invalidUrl': 'Picture must be a valid url',
   };
   
+  /**
+   * Function return error msg value
+   * @param [validationId] - Validation id
+   */
   public getValidationMsg(validationId: string): string {
     return this.errorMessages[validationId];
   }

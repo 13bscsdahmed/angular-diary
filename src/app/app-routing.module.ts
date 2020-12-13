@@ -25,6 +25,9 @@ const routes: Routes = [
   }
 ];
 
+/**
+ * Main app routing modules
+ */
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadSelectedModules })

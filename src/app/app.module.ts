@@ -16,6 +16,9 @@ import { constants } from './config/app.constants';
 import { metaReducers, reducers } from './reducers';
 
 
+/**
+ * Main app module
+ */
 @NgModule({
   declarations: [
     AppComponent,

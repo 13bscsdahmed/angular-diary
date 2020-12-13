@@ -1,11 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NoteModel } from '../../../../store/notes/models/note.model';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AddNote } from '../../../../store/notes/notes.actions';
-import { selectAllNotes } from '../../../../store/notes/notes.selectors';
-import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 import { UUID } from 'angular2-uuid';
 import { AppUtils } from '../../../shared/utils/app.utils';
@@ -13,6 +11,10 @@ import { ValidatorUtil } from '../../../shared/utils/validator.utils';
 import { ToastrService } from 'ngx-toastr';
 import { constants } from '../../../../config/app.constants';
 
+
+/**
+ * Component to add new notes
+ */
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
@@ -27,7 +29,6 @@ export class NoteComponent implements OnInit, OnDestroy {
   });
   note: NoteModel = this.getDefaultNoteValue();
   destroy$: Subject<boolean> = new Subject<boolean>();
-  loading$: Observable<NoteModel[]>;
   constructor(private store: Store,
               private toastrService: ToastrService) { }
 

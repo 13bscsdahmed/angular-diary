@@ -1,13 +1,13 @@
 import { Directive, Input, HostListener } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+/**
+ * Directive to update form validity on submit button clicked
+ */
 @Directive({
   selector: '[appFormSubmitValidationMsg]'
 })
 
-/**
- * Directive to update form validity of submit button clicked
- */
 export class FormSubmitValidationMsgDirective {
   
   @Input() validationControl: FormGroup;

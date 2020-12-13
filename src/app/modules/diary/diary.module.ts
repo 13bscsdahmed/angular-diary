@@ -11,7 +11,9 @@ import { HistoryComponent } from './components/history/history.component';
 import { notesReducer } from '../../store/notes/notes.reducer';
 import { features } from '../../store/features/features';
 
-
+/**
+ * Diary Module
+ */
 @NgModule({
   declarations: [
     DiaryComponent,
