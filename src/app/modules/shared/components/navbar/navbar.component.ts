@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { constants } from '../../../config/app.constants';
+import { constants } from '../../../../config/app.constants';
 import { NavbarModel } from '../models/navbar.model';
 
 @Component({

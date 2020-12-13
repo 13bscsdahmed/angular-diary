@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-import { FormControlValidationMsgDirective } from '../../shared/directives/formcontrol-validation-msg.directive';
-import { FormSubmitValidationMsgDirective } from '../../shared/directives/formsubmit-validation-msg.directive';
+import { FormControlValidationMsgDirective } from './directives/formcontrol-validation-msg.directive';
+import { FormSubmitValidationMsgDirective } from './directives/formsubmit-validation-msg.directive';
 
-import { ValidationMsgService } from '../../shared/services/validation-msg.service';
+import { ValidationMsgService } from './services/validation-msg.service';
 
 
 @NgModule({

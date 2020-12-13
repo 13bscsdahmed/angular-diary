@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarModel } from './shared/components/models/navbar.model';
+import { NavbarModel } from './modules/shared/components/models/navbar.model';
 import { appRoutes } from './config/app-routes.constants';
 
 @Component({

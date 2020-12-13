@@ -7,8 +7,8 @@ import { selectAllNotes } from '../../../../store/notes/notes.selectors';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
-import { AppUtils } from '../../../../shared/utils/app.utils';
-import { ValidatorUtil } from '../../../../shared/utils/validator.utils';
+import { AppUtils } from '../../../shared/utils/app.utils';
+import { ValidatorUtil } from '../../../shared/utils/validator.utils';
 
 @Component({
   selector: 'app-note',

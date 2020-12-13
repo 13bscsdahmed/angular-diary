@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { appRoutes } from './config/app-routes.constants';
-import { PreloadSelectedModules } from './shared/strategies/preload-selected-modules.strategy';
+import { PreloadSelectedModules } from './strategies/preload-selected-modules.strategy';
 
 const routes: Routes = [
   { // Redirect '' to public route
@@ -12,7 +12,7 @@ const routes: Routes = [
       preload: false
     }
   },
-  { // Go to secure route
+  { // Go to diary route
     path: appRoutes.diary.root,
     data: {
       preload: true
